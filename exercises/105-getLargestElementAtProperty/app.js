@@ -1,6 +1,10 @@
 function getLargestElementAtProperty(obj, key) {
     // your code here
-    
+    if( Object.hasOwn(obj,key) && Array.isArray(obj[key]) && obj[key].length){
+      return Math.max.apply(Math,obj[key]); 
+    }else{
+      return [];
+    }
 }
 
 let obj = {

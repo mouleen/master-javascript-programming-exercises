@@ -1,5 +1,10 @@
 function getProductOfAllElementsAtProperty(obj, key) {
     // your code here
+    if( Object.hasOwn(obj,key) && Array.isArray(obj[key]) && obj[key].length){
+      return obj[key].reduce((a, b) => a * b);
+  }else{
+    return 0;
+  }
     
 }
 
