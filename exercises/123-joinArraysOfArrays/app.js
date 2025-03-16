@@ -1,5 +1,11 @@
 function joinArrayOfArrays(arr) {
   // your code here
+  let retarr=[];
+  for (let i in arr){
+    retarr=retarr.concat(arr[i]);
+   // console.log(retarr);
+  }
+  return retarr;
   
 }
 

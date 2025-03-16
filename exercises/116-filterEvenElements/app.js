@@ -1,5 +1,11 @@
 function filterEvenElements(arr) {
     // your code here
+    if( Array.isArray(arr) && arr.length){
+        let ret = arr.filter((item) => item % 2 === 0);
+        return ret;
+      }else{
+        return [];
+      }
     
 }
 
