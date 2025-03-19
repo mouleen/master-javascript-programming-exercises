@@ -1,6 +1,6 @@
 function findLongestPalindrome(sentence) {
   // your code here
-  let isPali=false;
+  let def='';
   let paliWords={};
   let largestPali=0;
 
@@ -12,7 +12,7 @@ function findLongestPalindrome(sentence) {
       let tmpword1=sentence.substr(i,j)
 
       if(tmpword1.length > 1){
-        console.log('?Es Pali :' + tmpword1 + ' = '+ isPalindrome(tmpword1));
+        //console.log('?Es Pali :' + tmpword1 + ' = '+ isPalindrome(tmpword1));
         if(isPalindrome(tmpword1)){
           let tmpLen=tmpword1.length;
           paliWords[tmpword1]=tmpLen;
@@ -21,12 +21,16 @@ function findLongestPalindrome(sentence) {
       }
     }
   }
-  console.log('paliwords' + paliWords);
-  /*for (let pali in paliWords){
-    if (paliWords[pali] == largestPali){
-      return pali;
+  //console.log('paliwords' + paliWords);
+  if (Object.keys(paliWords).length != 0){
+    for (let pali in paliWords){
+      if (paliWords[pali] == largestPali){
+        return pali;
+      }
     }
-  }*/
+  }else{
+    return def;
+  }
 
 }
 
@@ -43,8 +47,10 @@ function reverseString(string) {
 
 function isPalindrome(word) {
   // your code here
+  word=word.toLowerCase();
   var len=word.length
   var mitad=len/2
+  var def='';
   if ( mitad % 2 == 0){ // Par
     //console.log(mitad, word.substr(0,mitad),word.substr(mitad,len));
     let p1=word.substr(0,mitad);
@@ -74,13 +80,7 @@ function isPalindrome(word) {
 //console.log(isPalindrome('lalal'));
 //console.log(isPalindrome('tralalalarte'));
 //console.log(findLongestPalindrome('tralalalart'));
+console.log(findLongestPalindrome("Madam, i'm adam"));
 let output = findLongestPalindrome("My dad is a racecar athlete");
 console.log(output); // --> "a racecar a"
-
-
-//My dad is a racecar athlete
-//MyyM
-//My  yM
-//My dd yM
-//My daad yM
 
