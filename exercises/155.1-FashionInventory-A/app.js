@@ -21,7 +21,32 @@ function renderInventory(inventory) {
     // your code here
     // hint: before you just dive into coding...
     // it's a good idea to sketch out a skeleton like you've been seeing earlier in this module...
-    
+   // this.createMatrix;
+    this.inventory=inventory;
+
+    let obj=this.inventory;
+    let row=[];
+    let arr=[];
+    for (let idx in obj){
+      //console.log('IDX=',idx);
+      for (let idxx in obj[idx]["shoes"]){
+        //console.log('IDXX=',idxx);
+        row=[];
+        row.push(obj[idx]["name"]);
+        row.push(obj[idx]["shoes"][idxx]["name"]);
+        row.push(obj[idx]["shoes"][idxx]["price"]);
+        arr.push(row);
+      }
+      //console.log('ROW',row);
+      //console.log('ARR',arr);
+    }
+    //console.log('out');
+    return arr;
 }
 
+//console.log(renderInventory(currentInventory).createMatrix());
 console.log(renderInventory(currentInventory))
+
+
+
+

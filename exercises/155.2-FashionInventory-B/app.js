@@ -19,7 +19,25 @@ let currentInventory = [
 
 function renderAverageCostPerDesigner(inventory) {
     // your code here
-  
+    let sum=0;
+    let arr=[];
+    for (let idx in inventory){
+      //console.log(inventory[idx]['name']);
+      //arr.push(inventory[idx]['name']);
+      sum=0;
+      let tmp={};
+      let tot=1;
+      tmp['name']=inventory[idx]['name']
+      for (let idxx in inventory[idx]['shoes']){
+       // console.log(inventory[idx]['shoes'][idxx]['price'])
+        sum=sum+inventory[idx]['shoes'][idxx]['price'];
+        tot=(Number.parseInt(idxx) + 1); 
+        //console.log('TOT',tot);
+      }
+      tmp['averagePrice'] = sum / tot;
+      arr.push( tmp );
+    }
+    return arr;
 }
 
 console.log(renderAverageCostPerDesigner(currentInventory));
